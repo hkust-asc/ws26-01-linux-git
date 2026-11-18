@@ -103,37 +103,36 @@ You may use the server, local WSL/macOS/Linux, or VS Code Remote-SSH. If the ser
    ```
 
    In the login prompts, choose **GitHub.com → HTTPS → login with a web browser**.
-2. If you have not been added to `hkust-asc` or do not have write access to this repository, first use **Fork** on GitHub to create your own copy. Pushing directly to `origin` when it points to the organization repository will fail with a 403 without write access.
-
-   Clone your fork and make your submission branch, replacing `YOUR_GITHUB_ID` with your GitHub ID:
+2. Clone the organization repository and create your submission branch and folder, replacing `YOUR_GITHUB_ID` with your GitHub ID:
 
    ```bash
-   git clone https://github.com/YOUR_GITHUB_ID/ws26-01-linux-git.git
+   git clone https://github.com/hkust-asc/ws26-01-linux-git.git
    cd ws26-01-linux-git
    git switch -c submit/YOUR_GITHUB_ID
    mkdir -p submissions/YOUR_GITHUB_ID
    ```
 
-   If you already cloned the organization repository, run these commands inside your existing clone instead:
-
-   ```bash
-   git remote add fork https://github.com/YOUR_GITHUB_ID/ws26-01-linux-git.git
-   git switch -c submit/YOUR_GITHUB_ID
-   mkdir -p submissions/YOUR_GITHUB_ID
-   ```
-
-   Then use `fork` instead of `origin` in the push command below. If you have write access, you may clone and push to the organization repository instead.
-3. Create `submissions/YOUR_GITHUB_ID/profile.md` with your preferred name or nickname, year and major, the Quest 2 passcode and Token when available, and one or two HPC interests. Do not include a student ID or legal full name in your profile or PR title.
-4. Stage your profile, commit it with a descriptive message, and push your branch to your fork (or to the organization repository if you have write access):
+3. Create `submissions/YOUR_GITHUB_ID/profile.md` with your preferred name or nickname, year and major, the Quest 2 passcode and Token when available, and one or two interests from the [Map of HPC](https://github.com/hkust-asc/.github-private#map-of-hpc). Do not include a student ID or legal full name in your profile or PR title.
+4. Stage your profile, commit it, and try pushing your branch to `origin`, the organization repository:
 
    ```bash
    git add submissions/YOUR_GITHUB_ID/profile.md
    git commit -m "Add workshop profile"
    git push -u origin submit/YOUR_GITHUB_ID
-   # If you added a fork remote instead: git push -u fork submit/YOUR_GITHUB_ID
    ```
 
-5. On GitHub, open a pull request from your fork's `submit/<github-id>` branch into `hkust-asc/ws26-01-linux-git` on `main`, titled `[Submit] Preferred Name (@github-id)`. If you pushed directly to the organization repository, open the PR from your branch there instead.
+5. If the push succeeds, open a pull request from your branch on the organization repository into `hkust-asc/ws26-01-linux-git` on `main`.
+
+   If the push fails with a 403 because you have not been added to `hkust-asc` or do not have write access, use **Fork** on GitHub to create your own copy. Then run these commands in the same clone:
+
+   ```bash
+   git remote add fork https://github.com/YOUR_GITHUB_ID/ws26-01-linux-git.git
+   git push -u fork submit/YOUR_GITHUB_ID
+   ```
+
+   Open a pull request from the fork's `submit/<github-id>` branch into `hkust-asc/ws26-01-linux-git` on `main`.
+
+   In either case, title the pull request `[Submit] Preferred Name (@github-id)`.
 
 ## Quest 4: Bonus bug report
 
