@@ -130,6 +130,7 @@ You may use the server, local WSL/macOS/Linux, or VS Code Remote-SSH. If the ser
    git add submissions/YOUR_GITHUB_ID/profile.md
    git commit -m "Add workshop profile"
    git push -u origin submit/YOUR_GITHUB_ID
+   # If you added a fork remote instead: git push -u fork submit/YOUR_GITHUB_ID
    ```
 
 5. On GitHub, open a pull request from your fork's `submit/<github-id>` branch into `hkust-asc/ws26-01-linux-git` on `main`, titled `[Submit] Preferred Name (@github-id)`. If you pushed directly to the organization repository, open the PR from your branch there instead.
@@ -146,4 +147,4 @@ Inspect `quests/matmul_buggy.c` and identify the bug. Do not push a fix to `main
 - Use `[Submit] Preferred Name (@github-id)` for submission PRs, and `[Bug] filename: short description` or `[Question] description of the problem` for issues. Never put a student ID or legal full name in a profile or PR title.
 - Check `git status` before committing. Do not add generated artifacts, logs, datasets, or model weights.
 
-`slides/` and `demos/` hold workshop materials; `quests/` holds exercise files; `submissions/` holds individual work.
+`slides/` and `demos/` hold workshop materials, including the class outline in [`slides/week1-slides.md`](slides/week1-slides.md); `quests/` holds exercise files; `submissions/` holds individual work.
