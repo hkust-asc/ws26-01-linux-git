@@ -24,7 +24,7 @@ static void matmul(const double *A, const double *B, double *C, int n)
         for (int j = 0; j < n; j++) {
             double sum = 0.0;
             /* Bug: k goes to n inclusive, so this reads one past each row. */
-            for (int k = 0; k <= n; k++) {
+            for (int k = 0; k < n; k++) {
                 sum += A[i * n + k] * B[k * n + j];
             }
             C[i * n + j] = sum;
