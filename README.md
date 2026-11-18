@@ -29,6 +29,10 @@ These are general tutorials, not login instructions for the training server:
 - [Git and GitHub](https://hkust-hpc-docs.readthedocs.io/latest/kb/git/index.html)
 - [How to Make a Pull Request](https://hkust-hpc-docs.readthedocs.io/latest/kb/git/how-to-make-a-pull-request.html)
 
+## After-class reading
+
+- [HPC Cluster Essentials: Tools, Techniques, and Best Practices](https://youtu.be/AiTUXhmDcZ0) — in class we play the beginning of this video during the HPC architecture segment. See also [`slides/week1-slides.md`](slides/week1-slides.md).
+
 ## Quest 1: Connect and explore
 
 1. Connect to the training server using your class account. See [training server access](#training-server-access) for the hostname, command, and host key fingerprints.

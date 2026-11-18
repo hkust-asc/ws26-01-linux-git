@@ -18,6 +18,7 @@ Wednesday, 2026-11-18
    - Keeping tasks alive (`tmux`)
 2. **Part 2: HPC Architecture & Git Workflow** *(15 mins)*
    - Local PC vs. Remote Server vs. HPC Cluster
+   - Play the opening of [HPC Cluster Essentials: Tools, Techniques, and Best Practices](https://youtu.be/AiTUXhmDcZ0) (also after-class reading)
    - Git & GitHub Collaboration (`branch` -> `commit` -> `push` -> `PR`)
    - VS Code Remote-SSH + GitHub Copilot Setup
 3. **Hands-on Quests 1–4** *(60 mins)*
@@ -39,6 +40,7 @@ Wednesday, 2026-11-18
 - **`tmux` vs. `Slurm`**：
   - Single test server (today): Use **`tmux`** so tasks survive Wi-Fi drops.
   - Real HPC cluster (later): **NEVER** run heavy jobs in `tmux` on the Login Node! Use **Slurm** to dispatch jobs to Compute Nodes.
+- In class we will play the beginning of [HPC Cluster Essentials: Tools, Techniques, and Best Practices](https://youtu.be/AiTUXhmDcZ0). Watch the rest after class.
 
 ---
 
