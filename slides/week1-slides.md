@@ -20,6 +20,7 @@ Wednesday, 2026-11-18
    - Local PC vs. Remote Server vs. HPC Cluster
    - Play the opening of [HPC Cluster Essentials: Tools, Techniques, and Best Practices](https://youtu.be/AiTUXhmDcZ0) (also after-class reading)
    - Git & GitHub Collaboration (`branch` -> `commit` -> `push` -> `PR`)
+   - Play [Git Explained in 100 Seconds](https://youtu.be/hwP7WQkmECE) (also after-class reading)
    - VS Code Remote-SSH + GitHub Copilot Setup
 3. **Hands-on Quests 1–4** *(60 mins)*
 
@@ -61,6 +62,8 @@ When Git or Linux drops you into `vim`, remember **2 modes**:
 ---
 
 ## 3. Git & GitHub Mental Model
+
+In class we can play [Git Explained in 100 Seconds](https://youtu.be/hwP7WQkmECE). Watch it after class if you want a short recap.
 
 Why not send `code_final_v3_real.zip` on WhatsApp?
 

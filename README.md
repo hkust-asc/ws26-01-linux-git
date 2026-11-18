@@ -32,6 +32,7 @@ These are general tutorials, not login instructions for the training server:
 ## After-class reading
 
 - [HPC Cluster Essentials: Tools, Techniques, and Best Practices](https://youtu.be/AiTUXhmDcZ0) — in class we play the beginning of this video during the HPC architecture segment. See also [`slides/week1-slides.md`](slides/week1-slides.md).
+- [Git Explained in 100 Seconds](https://youtu.be/hwP7WQkmECE) — we can play this video when teaching Git.
 
 ## Quest 1: Connect and explore
 
