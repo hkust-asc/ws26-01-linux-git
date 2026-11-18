@@ -1,14 +1,37 @@
 # Week 1: Linux basics and Git
 
-**Wednesday, 2026-11-18, 18:30–20:00 (HKT)** · [ASC Team organization](https://github.com/hkust-asc)
+**Wednesday, 2026-11-18, 18:30–20:00 (HKT; 90 minutes)** · [ASC Team organization](https://github.com/hkust-asc)
 
-Practice navigating a Linux server, separating program output, keeping a session alive, and submitting work through Git. Server access details are still TBD; the coach will post them on the [internal member board](https://github.com/hkust-asc/.github-private#server-access).
+Practice navigating a Linux server, separating program output, keeping a session alive, and submitting work through Git. See [training server access](#training-server-access) for the hostname and first connection.
 
-Member guides: [WSL setup](https://github.com/hkust-asc/.github-private/blob/main/docs/wsl-setup.md) · [SSH and VS Code](https://github.com/hkust-asc/.github-private/blob/main/docs/ssh-vscode.md) · [Git rules](https://github.com/hkust-asc/.github-private/blob/main/docs/git-rules.md)
+Member-only guides: [WSL setup](https://github.com/hkust-asc/.github-private/blob/main/docs/wsl-setup.md) · [SSH and VS Code](https://github.com/hkust-asc/.github-private/blob/main/docs/ssh-vscode.md) · [Git rules](https://github.com/hkust-asc/.github-private/blob/main/docs/git-rules.md)
+
+## Training server access
+
+The training server hostname is `asc26.nooobkevin.fyi`, on port `22`. Accounts are handed out during the class session. For example, connect with:
+
+```bash
+ssh asc01@asc26.nooobkevin.fyi
+```
+
+Use the account handed to you. Before accepting a host key on your first connection, check that its fingerprint matches the corresponding key type below. These fingerprints were verified against the training server's host keys on 2026-11-18:
+
+- ED25519: `SHA256:1h5mUMKSzLHP7dCxNImO9dID1qafnwPhveP9R2X8qa4`
+- ECDSA: `SHA256:yXTPNfi1doCXsESbPcuTsIUdjBD5gfH/YdJ/IJoV+Ng`
+- RSA: `SHA256:jWkxDx7zDQMx2aBu+KUoSyMuJ1hEnlfJCVerUe0UpU8`
+
+## Beginner tutorials
+
+These are general tutorials, not login instructions for the training server:
+
+- [HPC Documentation](https://hkust-hpc-docs.readthedocs.io/latest/)
+- [Linux](https://hkust-hpc-docs.readthedocs.io/latest/kb/linux/index.html)
+- [Git and GitHub](https://hkust-hpc-docs.readthedocs.io/latest/kb/git/index.html)
+- [How to Make a Pull Request](https://hkust-hpc-docs.readthedocs.io/latest/kb/git/how-to-make-a-pull-request.html)
 
 ## Quest 1: Connect and explore
 
-1. Once the coach provides the host, port, and account, connect to the training server with SSH. See the [SSH guide](https://github.com/hkust-asc/.github-private/blob/main/docs/ssh-vscode.md) for the command.
+1. Connect to the training server using your class account. See [training server access](#training-server-access) for the hostname, command, and host key fingerprints.
 2. Create and enter your workspace:
 
    ```bash
@@ -30,16 +53,24 @@ Member guides: [WSL setup](https://github.com/hkust-asc/.github-private/blob/mai
 
 The coach will put `noisy_sensor.sh` and `long_sim.sh` on the server in `/opt/asc_quest/`. They are not stored in Git.
 
-1. From `~/workspace`, run the sensor with standard output and standard error sent to separate files:
+1. From `~/workspace`, run the sensor with standard output and standard error sent to separate files. The passcode line in `passcode.txt` should be clean, without error messages; errors should go to `error.log`. Then inspect both files:
 
    ```bash
    cd ~/workspace
-   /opt/asc_quest/noisy_sensor.sh > passcode.txt 2> error.log
    cat passcode.txt
    cat error.log
    ```
 
-   The passcode line in `passcode.txt` should be clean, without error messages. Keep the passcode for your profile.
+   <details>
+   <summary>Hint: redirect the sensor output</summary>
+
+   ```bash
+   /opt/asc_quest/noisy_sensor.sh > passcode.txt 2> error.log
+   ```
+
+   </details>
+
+   Keep the passcode for your profile.
 2. Start a session named `sim` and run the simulation inside it:
 
    ```bash
@@ -63,18 +94,37 @@ The coach will put `noisy_sensor.sh` and `long_sim.sh` on the server in `/opt/as
 
 You may use the server, local WSL/macOS/Linux, or VS Code Remote-SSH. If the server is not open yet, submit your profile first and add the Quest 2 results later.
 
-1. Configure your Git identity and authenticate with GitHub in the environment you choose.
-2. Clone this repository and make your submission branch. Replace `YOUR_GITHUB_ID` with your GitHub ID:
+1. Configure your Git identity and authenticate with GitHub in the environment you choose. Replace the placeholders with your preferred name and GitHub email:
 
    ```bash
-   git clone https://github.com/hkust-asc/ws26-01-linux-git.git
+   git config --global user.name "Your Preferred Name"
+   git config --global user.email "your-github-email@example.com"
+   gh auth login
+   ```
+
+   In the login prompts, choose **GitHub.com → HTTPS → login with a web browser**.
+2. If you have not been added to `hkust-asc` or do not have write access to this repository, first use **Fork** on GitHub to create your own copy. Pushing directly to `origin` when it points to the organization repository will fail with a 403 without write access.
+
+   Clone your fork and make your submission branch, replacing `YOUR_GITHUB_ID` with your GitHub ID:
+
+   ```bash
+   git clone https://github.com/YOUR_GITHUB_ID/ws26-01-linux-git.git
    cd ws26-01-linux-git
    git switch -c submit/YOUR_GITHUB_ID
    mkdir -p submissions/YOUR_GITHUB_ID
    ```
 
-3. Create `submissions/YOUR_GITHUB_ID/profile.md` with your name, year and major, the Quest 2 passcode and Token when available, and one or two interests from the [Map of HPC](https://github.com/hkust-asc/.github-private#map-of-hpc).
-4. Stage your profile, commit it with a descriptive message, and push your branch:
+   If you already cloned the organization repository, run these commands inside your existing clone instead:
+
+   ```bash
+   git remote add fork https://github.com/YOUR_GITHUB_ID/ws26-01-linux-git.git
+   git switch -c submit/YOUR_GITHUB_ID
+   mkdir -p submissions/YOUR_GITHUB_ID
+   ```
+
+   Then use `fork` instead of `origin` in the push command below. If you have write access, you may clone and push to the organization repository instead.
+3. Create `submissions/YOUR_GITHUB_ID/profile.md` with your preferred name or nickname, year and major, the Quest 2 passcode and Token when available, and one or two HPC interests. Do not include a student ID or legal full name in your profile or PR title.
+4. Stage your profile, commit it with a descriptive message, and push your branch to your fork (or to the organization repository if you have write access):
 
    ```bash
    git add submissions/YOUR_GITHUB_ID/profile.md
@@ -82,7 +132,7 @@ You may use the server, local WSL/macOS/Linux, or VS Code Remote-SSH. If the ser
    git push -u origin submit/YOUR_GITHUB_ID
    ```
 
-5. Open a pull request in this repository titled `[Submit] Your Name (@github-id)`.
+5. On GitHub, open a pull request from your fork's `submit/<github-id>` branch into `hkust-asc/ws26-01-linux-git` on `main`, titled `[Submit] Preferred Name (@github-id)`. If you pushed directly to the organization repository, open the PR from your branch there instead.
 
 ## Quest 4: Bonus bug report
 
@@ -93,7 +143,7 @@ Inspect `quests/matmul_buggy.c` and identify the bug. Do not push a fix to `main
 - Use `submit/<github-id>` for assignments and `fix/<github-id>-<short-description>` for fixes. Do not push to `main`.
 - Unless a quest requires editing a shared file, work only under `submissions/<github-id>/`; do not edit the originals in `quests/` or another person's folder.
 - Make commit messages describe the change. `update`, `111`, and `asdf` are not allowed.
-- Use `[Submit] Your Name (@github-id)` for submission PRs, and `[Bug] filename: short description` or `[Question] description of the problem` for issues.
+- Use `[Submit] Preferred Name (@github-id)` for submission PRs, and `[Bug] filename: short description` or `[Question] description of the problem` for issues. Never put a student ID or legal full name in a profile or PR title.
 - Check `git status` before committing. Do not add generated artifacts, logs, datasets, or model weights.
 
 `slides/` and `demos/` hold workshop materials; `quests/` holds exercise files; `submissions/` holds individual work.
