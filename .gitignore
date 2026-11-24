@@ -1,0 +1,27 @@
+# Compiled objects, executables, and crash dumps
+*.o
+*.out
+*.exe
+*.so
+*.a
+a.out
+core.*
+
+# Generated logs and exercise results
+*.log
+sim_result.txt
+passcode.txt
+
+# Scientific datasets, model weights, and archives
+*.hdf5
+*.h5
+*.nc
+*.pt
+*.safetensors
+*.tar.gz
+*.zip
+
+# Local operating system, editor, and Python files
+.DS_Store
+.vscode/
+__pycache__/
